@@ -4,6 +4,7 @@ This Powershell module parses podcast feeds, to look for podcast episodes and if
 
 This module contains 2 cmdlets : Get-Podcast and Save-Podcast.
 Save-Podcast can be used on its own, or take pipeline input from Get-Podcast.
+It requires Powershell Version 4.
 
 GET-PODCAST :
 

@@ -254,7 +254,6 @@ function Save-Podcast {
 
         }
     }
-    End {        
-
+    End {   
     }
 }
