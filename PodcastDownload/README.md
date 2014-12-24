@@ -29,6 +29,6 @@ PARAMETERS :
 
 Same parameters as Get-Podcast, plus :
 
-MediaFileUrl : To specify one or more mediafiles to download by entering their direct URL.
+MediaFileUrl : To specify one or more media files to download by entering their direct URL.
 
 Destination : To specify the destination folder where to save the podcast files. By default, it is the current directory.
