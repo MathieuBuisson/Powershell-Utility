@@ -190,8 +190,7 @@ function Save-Podcast {
                 Invoke-WebRequest -Uri $MediaFile -OutFile $OutFile
                 write-Output "Downloaded the media file : $MediaFile to $OutFile "
             }
-        }        
-
+        }      
         Else {
 
             foreach ( $PodcastURL in $Url ) {
@@ -251,7 +250,6 @@ function Save-Podcast {
                     }
                 }
             }
-
         }
     }
     End {   
