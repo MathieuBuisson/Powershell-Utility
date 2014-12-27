@@ -9,7 +9,7 @@ It requires Powershell Version 4.
 
 GET-PODCAST :
 
-Retrieves information on podcast(s) episodes from the podcast RSS/Atom feed(s) specified in the -Url parameter or from a file.
+Retrieves information on podcast(s) episodes from the podcast RSS/Atom feed(s) specified in the -Url parameter or from a file (the file SamplePodcastList can be used as an example).
 
 PARAMETERS :
 
