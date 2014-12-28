@@ -4,6 +4,7 @@ This module contains one cmdlet : Compare-FolderFiles.
 
 It compares the files in one folder with the files in another folder.
 Uses a MD5 hash value to uniquely identify and compare the content of the files.
+
 Requires Powershell version 4.
 
 PARAMETERS :
