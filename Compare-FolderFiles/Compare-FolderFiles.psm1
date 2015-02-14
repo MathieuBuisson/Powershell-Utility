@@ -49,6 +49,9 @@ function Compare-FolderFiles {
 
     Compares the files in C:\test2 with the files in C:\test, showing only the more recent version of `
     files which have the same name and are in the same location on both sides.
+
+.LINK
+   Get-FileHash
 #>
     [CmdletBinding()]   
     Param (
