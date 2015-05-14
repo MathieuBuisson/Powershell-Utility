@@ -50,10 +50,12 @@ function Get-Podcast {
     Begin {
         If ($InputFile) {
             $Url = Get-Content $InputFile
-            }
+        }
         $PublishedFromDate = (Get-Date).AddDays(-$FromLastDays)
-
         Write-Verbose "`$PublishedFromDate : $PublishedFromDate ."        
+        
+        # Clearing the default parameter values in the function's scope
+        $PSDefaultParameterValues.Clear()
     }
     Process {
         foreach ( $PodcastURL in $Url ) {
@@ -169,6 +171,9 @@ function Save-Podcast {
         }
         $PublishedFromDate = (Get-Date).AddDays(-$FromLastDays)
         Write-Verbose "`$PublishedFromDate : $PublishedFromDate ."
+        
+        # Clearing the default parameter values in the function's scope
+        $PSDefaultParameterValues.Clear()
     }
     Process {
         if ($MediaFileUrl) {
