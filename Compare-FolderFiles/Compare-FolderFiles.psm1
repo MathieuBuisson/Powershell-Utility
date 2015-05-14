@@ -73,6 +73,10 @@ function Compare-FolderFiles {
 
         [switch]$ShowNewer
     )
+    Begin {
+       # Clearing the default parameter values in the function's scope
+       $PSDefaultParameterValues.Clear()
+    }
     Process {
 
         $RefFolderFiles = Get-ChildItem -Path $ReferenceFolder -Recurse:$Recurse -Force:$Force -File
