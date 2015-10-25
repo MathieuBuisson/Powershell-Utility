@@ -6,8 +6,8 @@ function New-ReadmeFromHelp {
 
 .DESCRIPTION
     Generates a README.md file from the help contained in the specified Powershell module file.
-    The generated README.md file's purpose is to serve as a brief documentation for the module on GitHub.
-    This README file is created in the same directory as the module file.
+    The generated README.md file's purpose is to serve as a brief documentation for the module on GitHub.  
+    This README file is created in the same directory as the module file.  
     It uses GitHub Flavored Markdown, so the GitHub website will format it nicely.
 
     This works with any PowerShell module (script or compiled) and any help (comment-based or XML-based) as long as it is accessible via Get-Help.
@@ -68,7 +68,7 @@ function New-ReadmeFromHelp {
             }            
         }
         Else {
-            $Readme += "This module contains 1 cmdlet : **$($Command.Name).**  "
+            $Readme += "This module contains 1 cmdlet : **$($Commands.Name)**.  "
         }
         If ($PSVersionRequired) {
             $Readme += "It requires PowerShell version $PSVersionRequired (or later)."
