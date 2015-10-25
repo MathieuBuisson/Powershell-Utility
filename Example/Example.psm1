@@ -2,10 +2,10 @@
 function Get-Nothing {
 <#
 .SYNOPSIS
-    This cmdlet does nothing, but does it remarkably well.
+    This cmdlet does nothing and does it remarkably well.
 
 .DESCRIPTION
-    This cmdlet does absolutely nothing, but does it remarkably well.
+    This cmdlet does absolutely nothing and does it remarkably well.
     It takes objects as input and it outputs nothing.
 
 .PARAMETER InputObject
@@ -43,10 +43,10 @@ function Get-Nothing {
 function Set-Nothing {
 <#
 .SYNOPSIS
-    This cmdlet configures nothing, but does it remarkably well.
+    This cmdlet configures nothing and does it remarkably well.
 
 .DESCRIPTION
-    This cmdlet configures nothing, but does it remarkably well.
+    This cmdlet configures nothing and does it remarkably well.
     It takes objects as input and it sets nothing to 42.
 
 .PARAMETER InputObject
