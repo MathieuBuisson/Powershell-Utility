@@ -35,12 +35,9 @@ function Get-Nothing {
         [Parameter(Position=1)]
         [string]$Filter
     )
-
     Begin {
     }
     Process {
-    }
-    End {        
     }
 }
 function Set-Nothing {
@@ -78,11 +75,8 @@ function Set-Nothing {
         [Parameter(Position=1)]
         [int]$Value = 42
     )
-
     Begin {
     }
     Process {
-    }
-    End {        
     }
 }
