@@ -333,58 +333,7 @@ function Save-Podcast {
         }
     }
 }
-function Get-PodcastFromList {
-<#
-.SYNOPSIS
-    Gets podcast information from the podcast URL(s) listed in the specified file.
 
-.DESCRIPTION
-    Gets podcast information from the podcast URL(s) listed in the specified file.
-    The information output for each podcast is : 
-
-.PARAMETER List
-    The full path to the text file listing the RSS/Atom URLs of podcasts.
-    The file should contain one podcast URL per line.
-
-.EXAMPLE
-    Get-PodcastFromList -List "C:\Documents\Mypodcasts.txt"
-    Gets podcast information for each podcast listed in the file Mypodcasts.txt.
-
-#>
-    [CmdletBinding()]
-    
-    Param(
-        [Parameter(Position=0,Mandatory=$True)]
-        [validatescript({ Test-Path $_ })]
-        [string]$List
-    )
-    Begin {  
-        $Url = Get-Content -Path $List      
-    }
-    Process {
-        Foreach ( $PodcastURL in $Url ) {
-            Try {
-            [xml]$PodcastFeed = Invoke-WebRequest -Uri $PodcastURL
-            }
-            Catch {
-                Write-Error $_.Exception.Message
-                Continue
-            }
-            $PodcastInfo = $PodcastFeed.rss.channel
-             
-            $CustomProps = [ordered]@{'URL'=$PodcastURL
-                            'Title'=$PodcastInfo.Title
-                            'SubTitle'=$PodcastInfo.SubTitle
-                            'Author'=$PodcastInfo.Author
-                            'Summary'=$PodcastInfo.Summary}
-
-            $PodcastObj = New-Object -TypeName psobject -Property $CustomProps
-            $PodcastObj
-        }
-    }
-    End {
-    }
-}
 function Add-PodcastToList {
 <#
 .SYNOPSIS
@@ -406,7 +355,7 @@ function Add-PodcastToList {
     Appends the URL "http://feeds.feedburner.com/RunasRadio" to the file Mypodcasts.txt.
 
 .EXAMPLE
-    Get-PodcastFromList "./AudioPodcasts.txt" | Where-Object { $_.Summary -like "*scripting*" } |
+    Get-Podcast ".\AudioPodcasts.txt" | Where-Object { $_.Summary -like "*scripting*" } |
     Add-PodcastToList ".\FavoritePodcasts.txt"
 
     Gets podcast information from the list AudioPodcasts.txt, filters the podcasts of interest and adds them to the list FavoritePodcasts.txt .
@@ -417,7 +366,7 @@ function Add-PodcastToList {
     Param(
         [Parameter(Position=0,Mandatory=$True,ValueFromPipeline=$True,ValueFromPipelineByPropertyName=$True)]
         [Alias("PodcastUrl")]
-        [string]$Url,
+        [string[]]$Url,
 
         [Parameter(Position=1,Mandatory=$True)]
         [string]$List
@@ -425,27 +374,88 @@ function Add-PodcastToList {
     Begin {  
         If ( -not(Test-Path -Path $List)) {
             New-Item -ItemType file -Path $List
+
+            # Variable to track the content the $List, to avoid adding the same URL twice to the file
+            [string[]]$CurrentListContent = @()
+        }
+        Else {
+            # Variable to track the content the $List, to avoid adding the same URL twice to the file
+            $CurrentListContent = Get-Content -Path $List
         }
     }
     Process {
         Foreach ( $PodcastURL in $Url ) {
-            Try {
-            [xml]$PodcastFeed = Invoke-WebRequest -Uri $PodcastURL
-            }
-            Catch {
-                Write-Error $_.Exception.Message
-                Continue
-            }
-            $PodcastInfo = $PodcastFeed.rss.channel
-             
-            $CustomProps = [ordered]@{'URL'=$PodcastURL
-                            'Title'=$PodcastInfo.Title
-                            'SubTitle'=$PodcastInfo.SubTitle
-                            'Author'=$PodcastInfo.Author
-                            'Summary'=$PodcastInfo.Summary}
+            $TrimmedPodcastURL = $PodcastURL.Trim()
+            Write-Debug "Trimmed PodcastURL : $TrimmedPodcastURL "
 
-            $PodcastObj = New-Object -TypeName psobject -Property $CustomProps
-            $PodcastObj
+            If (-not [string]::IsNullOrWhiteSpace($TrimmedPodcastURL)) {
+
+                If ($TrimmedPodcastURL -notin $CurrentListContent) {
+                    # The comma is not a typo, this makes sure $PodcastURL is added as a new item in the array
+                    $CurrentListContent += ,$TrimmedPodcastURL
+                    Write-Debug "CurrentListContent : $CurrentListContent "
+
+                    "`n$TrimmedPodcastURL`n" | Out-File -FilePath $List -Append
+                }
+            }
+        }
+    }
+    End {
+    }
+}
+
+function Remove-PodcastFromList {
+<#
+.SYNOPSIS
+    Removes one or more podcast URL(s) from a podcast list file.
+
+.DESCRIPTION
+    Removes one or more podcast URL(s) from a file containing podcast URL(s).
+    The file must exist and contain podcast URL(s), one per line.
+    This file act as a podcast list and it can later be used as input for the cmdlets Get-Podcast and Save-Podcast.
+
+.PARAMETER List
+    The full path to the text file listing the RSS/Atom URLs of podcasts.
+    The file must exist and contain podcast URL(s), one per line.
+
+.EXAMPLE
+    Remove-PodcastFromList -Url "http://feeds.feedburner.com/RunasRadio" -List "C:\Documents\Mypodcasts.txt"
+    
+    Removes the line containing the URL "http://feeds.feedburner.com/RunasRadio" from the file Mypodcasts.txt.
+
+.EXAMPLE
+    Get-Podcast ".\AudioPodcasts.txt" | Where-Object { $_.Summary -like "*scripting*" } |
+    Remove-PodcastFromList ".\FavoritePodcasts.txt"
+
+    Gets podcast information from the list AudioPodcasts.txt, filters the podcasts, and removes them from the list FavoritePodcasts.txt .
+#>
+    [CmdletBinding()]
+    
+    Param(
+        [Parameter(Position=0,Mandatory=$True,ValueFromPipeline=$True,ValueFromPipelineByPropertyName=$True)]
+        [Alias("PodcastUrl")]
+        [string[]]$Url,
+
+        [Parameter(Position=1,Mandatory=$True)]
+        [ValidateScript({ Test-Path -Path $_ -Type Leaf })]
+        [string]$List
+    )
+    Begin { 
+        # Variable to track the content the $List, to avoid adding the same URL twice to the file 
+        $CurrentListContent = Get-Content -Path $List
+    }
+    Process {
+        Foreach ( $PodcastURL in $Url ) {
+            $TrimmedPodcastURL = $PodcastURL.Trim()
+            Write-Debug "Trimmed PodcastURL : $TrimmedPodcastURL "
+
+            If ($TrimmedPodcastURL -in $CurrentListContent) {
+                # The comma is not a typo, this makes sure $PodcastURL is added as a new item in the array
+                $CurrentListContent -= $TrimmedPodcastURL
+                Write-Debug "CurrentListContent : $CurrentListContent "
+
+                "`n$TrimmedPodcastURL`n" | Out-File -FilePath $List -Append
+            }
         }
     }
     End {
