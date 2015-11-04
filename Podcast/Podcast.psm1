@@ -343,7 +343,12 @@ function Add-PodcastToList {
 .DESCRIPTION
     Appends one or more podcast URL(s) to a file.
     If the specified file doesn't exist, it creates the file.
-    This file act as a podcast list and it can later be used as input for the cmdlets Get-Podcast and Save-Podcast.
+    This file act as a podcast list and it can be used as input for the cmdlets Get-Podcast and Save-Podcast.
+
+.PARAMETER Url
+    RSS/Atom feed Url of the podcast(s).
+    Can take a comma-separated list of URLs.
+    It has an alias : PodcastUrl.
 
 .PARAMETER List
     The full path to the text file listing the RSS/Atom URLs of podcasts.
@@ -412,7 +417,7 @@ function Remove-PodcastFromList {
 .DESCRIPTION
     Removes one or more podcast URL(s) from a file containing podcast URL(s).
     The file must exist and contain podcast URL(s), one per line.
-    This file act as a podcast list and it can later be used as input for the cmdlets Get-Podcast and Save-Podcast.
+    This file act as a podcast list and it can be used as input for the cmdlets Get-Podcast and Save-Podcast.
 
 .PARAMETER List
     The full path to the text file listing the RSS/Atom URLs of podcasts.
