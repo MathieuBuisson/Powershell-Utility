@@ -419,6 +419,11 @@ function Remove-PodcastFromList {
     The file must exist and contain podcast URL(s), one per line.
     This file act as a podcast list and it can be used as input for the cmdlets Get-Podcast and Save-Podcast.
 
+.PARAMETER Url
+    RSS/Atom feed Url of the podcast(s).
+    Can take a comma-separated list of URLs.
+    It has an alias : PodcastUrl.
+
 .PARAMETER List
     The full path to the text file listing the RSS/Atom URLs of podcasts.
     The file must exist and contain podcast URL(s), one per line.
