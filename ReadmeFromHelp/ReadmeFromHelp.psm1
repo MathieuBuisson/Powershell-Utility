@@ -30,7 +30,7 @@ function New-ReadmeFromHelp {
 
     Begin {
         Try {
-            Import-Module $ModuleFile
+            Import-Module $ModuleFile -Force
         }
         Catch {
             Throw $_.Exception
