@@ -424,10 +424,10 @@ function Remove-PodcastFromList {
     Removes the line containing the URL "http://feeds.feedburner.com/RunasRadio" from the file Mypodcasts.txt.
 
 .EXAMPLE
-    Get-Podcast ".\AudioPodcasts.txt" | Where-Object { $_.Summary -like "*scripting*" } |
-    Remove-PodcastFromList ".\FavoritePodcasts.txt"
+    Get-Podcast ".\AudioPodcasts.txt" -Last 1 | Where-Object { $_.PublishedDate -lt (Get-Date).AddMonths(-3) } |
+    Remove-PodcastFromList ".\AudioPodcasts.txt"
 
-    Gets podcast information from the list AudioPodcasts.txt, filters the podcasts, and removes them from the list FavoritePodcasts.txt .
+    Gets the last episode of each podcast in the list AudioPodcasts.txt, filters the podcasts for which the last episode is older than 3 months ago, and removes them from the list.
 #>
     [CmdletBinding()]
     
@@ -441,21 +441,20 @@ function Remove-PodcastFromList {
         [string]$List
     )
     Begin { 
-        # Variable to track the content the $List, to avoid adding the same URL twice to the file 
-        $CurrentListContent = Get-Content -Path $List
     }
     Process {
         Foreach ( $PodcastURL in $Url ) {
             $TrimmedPodcastURL = $PodcastURL.Trim()
             Write-Debug "Trimmed PodcastURL : $TrimmedPodcastURL "
 
-            If ($TrimmedPodcastURL -in $CurrentListContent) {
-                # The comma is not a typo, this makes sure $PodcastURL is added as a new item in the array
-                $CurrentListContent -= $TrimmedPodcastURL
-                Write-Debug "CurrentListContent : $CurrentListContent "
-
-                "`n$TrimmedPodcastURL`n" | Out-File -FilePath $List -Append
+            $NewListContent = Select-String -Pattern $TrimmedPodcastURL -Path $List -NotMatch | Select-Object -ExpandProperty Line
+            Try {
+                Set-Content -Path $List -Value $NewListContent -Force
             }
+            Catch {
+                Write-Error $_.Exception.Message
+                Continue
+            }            
         }
     }
     End {
