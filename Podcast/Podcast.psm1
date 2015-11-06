@@ -361,7 +361,7 @@ function Add-PodcastToList {
 
 .EXAMPLE
     Get-Podcast ".\AudioPodcasts.txt" | Where-Object { $_.Summary -like "*scripting*" } |
-    Add-PodcastToList ".\FavoritePodcasts.txt"
+    Add-PodcastToList -List ".\FavoritePodcasts.txt"
 
     Gets podcast information from the list AudioPodcasts.txt, filters the podcasts of interest and adds them to the list FavoritePodcasts.txt .
 
