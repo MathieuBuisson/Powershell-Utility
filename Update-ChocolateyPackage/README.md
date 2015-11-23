@@ -16,7 +16,7 @@ It requires PowerShell version 5
 Uses the Powershell 5.0 PackageManagement module to update Chocolatey packages 
 to the latest stable version.  
 It compares the version currently installed Chocolatey packages on the local 
-machine with the latest stable version.
+machine with the latest stable version.  
 If the currently installed version is lower than the latest, it installs the 
 latest version from the Chocolatey gallery.  
 It takes care of uninstalling the previous version if necessary and installing any dependencies.
