@@ -1,6 +1,0 @@
-install:
-  - cinst pester
-
-build: false
-
-test_script:
