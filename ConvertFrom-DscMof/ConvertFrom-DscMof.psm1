@@ -40,7 +40,6 @@ function ConvertFrom-DscMof
             $Resources = $FileContent | Select-Object -Skip ($LineWithFirstBrace - 2)
 
             $Resources = $Resources -replace ";",""
-            #$Resources = $Resources | Where-Object {$_ -notmatch "instance of "}
 
             # Reformatting multi-value properties to allow ConvertFrom-StringData to process them
             $Resources = $resources -join "`n"
