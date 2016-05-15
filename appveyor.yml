@@ -5,13 +5,9 @@ skip_commits:
   message: /readme.*/
   
 install:
-  # - cinst pester -y
-  #- cinst powershell-packagemanagement -y
-  #- ps: Install-Module PsScriptAnalyzer -Force
-  - ps: $PSVersiontable
-  - ps: Get-Module -ListAvailable PackageManagement
-  - ps: Get-Module -ListAvailable PSScriptAnalyzer
+  - ps: Install-Module PsScriptAnalyzer -Force
 
 build: false
 
 test_script:
+  -ps: Invoke-ScriptAnalyzer -Path $pwd -Recurse -Severity Error
