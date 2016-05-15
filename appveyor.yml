@@ -11,4 +11,4 @@ install:
 build: false
 
 test_script:
-  - ps: Invoke-ScriptAnalyzer -Path $pwd -Recurse -Severity Error
+  - ps: Invoke-ScriptAnalyzer -Path $pwd -Recurse -Severity Warning
