@@ -1,12 +1,16 @@
+os: WMF 5
+
 # Skip on updates to the readme
 skip_commits:
   message: /readme.*/
   
 install:
-  - cinst pester -y
+  # - cinst pester -y
   #- cinst powershell-packagemanagement -y
   #- ps: Install-Module PsScriptAnalyzer -Force
   - ps: $PSVersiontable
+  - ps: Get-Module -ListAvailable PackageManagement
+  - ps: Get-Module -ListAvailable PSScriptAnalyzer
 
 build: false
 
