@@ -5,9 +5,10 @@ skip_commits:
   message: /readme.*/
   
 install:
+  - ps: Install-PackageProvider -Name NuGet -Force
   - ps: Install-Module PsScriptAnalyzer -Force
 
 build: false
 
 test_script:
-  -ps: Invoke-ScriptAnalyzer -Path $pwd -Recurse -Severity Error
+  - ps: Invoke-ScriptAnalyzer -Path $pwd -Recurse -Severity Error
