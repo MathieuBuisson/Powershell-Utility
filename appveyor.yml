@@ -4,7 +4,8 @@ skip_commits:
   
 install:
   - cinst pester -y
-  - cinst PsScriptAnalyzer -y
+  - cinst powershell-packagemanagement -y
+  - ps: Install-Module PsScriptAnalyzer -Force
 
 build: false
 
