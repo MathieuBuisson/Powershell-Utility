@@ -9,18 +9,22 @@ skip_commits:
 install:
   - ps: Install-PackageProvider -Name NuGet -Force
   - ps: Install-Module PsScriptAnalyzer -Force
-
+  
 build: false
 
 test_script:
   - ps: |
       Add-AppveyorTest -Name "PsScriptAnalyzer" -Outcome Running
-      $Result = Invoke-ScriptAnalyzer -Path $pwd -Recurse -Severity Error -ErrorAction SilentlyContinue
-      If ($Result) {
-        $ResultString = $ScriptAnalyzer | Out-String
+      $Results = Invoke-ScriptAnalyzer -Path $pwd -Recurse -Severity Error -ErrorAction SilentlyContinue
+      If ($Results) {
+        $ResultString = $Results | Out-String
+        Write-Warning $ResultString
         Add-AppveyorMessage -Message "PSScriptAnalyzer output contained one or more result(s) with 'Error' severity.`
         Check the 'Tests' tab of this build for more details." -Category Error
         Update-AppveyorTest -Name "PsScriptAnalyzer" -Outcome Failed -ErrorMessage $ResultString
+        
+        # Failing the build
+        Throw "Build failed"
       }
       Else {
         Update-AppveyorTest -Name "PsScriptAnalyzer" -Outcome Passed
