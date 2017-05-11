@@ -1,12 +1,12 @@
 ﻿## Description :
 
 This module contains 4 cmdlets :  
-**Get-Podcast**  
-**Save-Podcast**  
-**Add-PodcastToList**  
-**Remove-PodcastFromList**  
-It requires PowerShell version 4
- (or later).
+  - **Get-Podcast**  
+  - **Save-Podcast**  
+  - **Add-PodcastToList**  
+  - **Remove-PodcastFromList**  
+
+It requires PowerShell version 4 (or later).
 
 
 ## Get-Podcast :
