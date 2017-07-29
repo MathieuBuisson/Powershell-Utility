@@ -1,4 +1,4 @@
-﻿##Description :
+﻿## Description :
 
 
 
@@ -8,7 +8,7 @@ It requires PowerShell version 5
 
 
 
-##Update-ChocolateyPackage :
+## Update-ChocolateyPackage :
 
 
 
@@ -27,7 +27,7 @@ More information : https://github.com/OneGet/oneget/issues/58
 So the present function is an alternative.
 
 
-###Parameters :
+### Parameters :
 
 
 
@@ -41,7 +41,7 @@ The output "What if" information is only in the case where a package is not up-t
 No output means that all packages are up-to-date.
 
 
-###Examples :
+### Examples :
 
 
 
