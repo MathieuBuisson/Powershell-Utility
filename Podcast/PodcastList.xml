@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<opml version="1.0">
+  <head>
+    <title>My Cloud Caster feeds</title>
+    <dateCreated>2017-09-03T14:25:15.8929395+00:00</dateCreated>
+    <dateModified>2017-09-03T14:25:15.8929395+00:00</dateModified>
+  </head>
+  <body>
+    <outline text="feeds">
+  	  <outline title="Software Engineering Radio - The Podcast for Professional Software Developers" type="rss" xmlUrl="http://feeds.feedburner.com/se-radio" />
+  	  <outline title="Coding Blocks - Patterns, Architecture, Best Practices, Tips and Tricks for Software, Database, and Web Developers / Engineers" type="rss" xmlUrl="http://feeds.podtrac.com/tBPkjrcL0_m0" />
+  	  <outline title="Microsoft Cloud Show" type="rss" xmlUrl="http://feeds.microsoftcloudshow.com/MicrosoftCloudShowEpisodes" />
+  	  <outline title="RunAs Radio" type="rss" xmlUrl="http://feeds.feedburner.com/RunasRadio" />
+  	  <outline title="Code Conversations   - Channel 9" type="rss" xmlUrl="https://s.ch9.ms/Shows/Code-Conversations/feed" />
+  	  <outline title="Microsoft Azure Cloud Cover Show (HD) - Channel 9" type="rss" xmlUrl="http://s.ch9.ms/Shows/Cloud+Cover/feed/mp4high" />
+  	  <outline title="PowerScripting Podcast" type="rss" xmlUrl="http://feeds.feedburner.com/PowerScripting" />
+  	  <outline title="IT Ops news and talk" type="rss" xmlUrl="http://www.omnycontent.com/d/playlist/660fbaf9-f025-4e41-a34e-a6aa016b6015/282e06e5-a16e-49d8-b536-a6c0012febd1/f72b4cba-1f25-4e89-b21f-a6de0174cac9/podcast.rss" />
+  	  <outline title="Developer On Fire" type="rss" xmlUrl="http://developeronfire.com/rss.xml" />
+  	  <outline title="DevOps Interviews  - Channel 9" type="rss" xmlUrl="https://s.ch9.ms/Blogs/DevOps-Interviews/RSS" />
+  	  <outline title="Herding Code" type="rss" xmlUrl="http://feeds.feedburner.com/herdingcode" />
+  	  <outline title="Software Defined Talk" type="rss" xmlUrl="http://www.softwaredefinedtalk.com/rss" />
+  	  <outline title="MS Dev Show" type="rss" xmlUrl="http://msdevshow.libsyn.com/rss" />
+  	  <outline title=".NET Rocks!" type="rss" xmlUrl="http://feeds.feedburner.com/dotnetrocks_AAC" />
+  	  <outline title="The Cynical Developer" type="rss" xmlUrl="http://cynicaldeveloper.com/feed/podcast" />
+  	  <outline title="DevOps Radio" type="rss" xmlUrl="http://devopsradio.libsyn.com/rss" />
+  	  <outline title="CodeChat (MP4) - Channel 9" type="rss" xmlUrl="http://s.ch9.ms/Shows/codechat/feed/mp4" />
+  	  <outline title="Complete Developer Podcast" type="rss" xmlUrl="http://completedeveloperpodcast.com/feed/podcast/" />
+  	  <outline title="The Cloudcast (.net) - Weekly Cloud Computing Podcast" type="rss" xmlUrl="https://www.buzzsprout.com/3195.rss" />
+  	  <outline title="Packet Pushers - Full Stack Journey" type="rss" xmlUrl="http://feeds.packetpushers.net/fullstackjourney" />
+  	  <outline title="DevOps Cafe Podcast" type="rss" xmlUrl="http://devopscafe.libsyn.com/rss" />
+  	  <outline title="Arrested DevOps" type="rss" xmlUrl="http://feeds.podtrac.com/VGAulpN7MY1U" />
+  	  <outline title="Continuous Discussions (#c9d9)" type="rss" xmlUrl="http://electric-cloud.com/blog/tag/c9d9-podcast/feed/" />
+  	  <outline title="Software Engineering Daily" type="rss" xmlUrl="http://softwareengineeringdaily.com/feed/podcast/" />
+  	  <outline title="Packet Pushers - Datanauts" type="rss" xmlUrl="http://feeds.packetpushers.net/datanauts/" />
+  	  <outline title="Taste of Premier   (HD) - Channel 9" type="rss" xmlUrl="http://s.ch9.ms/Blogs/Taste-of-Premier/feed/mp4high" />
+    </outline>
+  </body>
+</opml>
