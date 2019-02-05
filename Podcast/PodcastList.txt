@@ -1,13 +1,19 @@
-http://s.ch9.ms/Shows/Defrag-Tools/feed/mp4high
-http://s.ch9.ms/Shows/The-Defrag-Show/feed/mp4high
-http://veeam.podbean.com/feed/
-http://feeds.feedburner.com/PowerScripting
-http://s.ch9.ms/Shows/Edge/feed/mp4high
-http://feeds.feedburner.com/RunasRadio
-http://intechwetrustpodcast.com/feed/
-http://feeds.packetpushers.net/datanauts
-http://foodfightshow.org/atom.xml
-http://theshipshow.com/podcast.xml
-http://feeds.packetpushers.net/fullstackjourney/
-http://www.pwop.com/feed.aspx?show=dotnetrocks&filetype=master
-http://msdevshow.libsyn.com/rss
+title="The Azure DevOps Podcast" Url="http://azuredevops.libsyn.com/rss"
+title="The Azure Podcast" Url="http://feeds.feedburner.com/TheAzurePodcast"
+title="Coding Blocks - Patterns, Architecture, Best Practices, Tips and Tricks for Software Engineers" Url="http://feeds.podtrac.com/tBPkjrcL0_m0"
+title="Microsoft Cloud Show" Url="http://feeds.microsoftcloudshow.com/MicrosoftCloudShowEpisodes"
+title="RunAs Radio" Url="http://feeds.feedburner.com/RunasRadio"
+title="DevOps Interviews  - Channel 9" Url="https://s.ch9.ms/Blogs/DevOps-Interviews/RSS"
+title=".NET Rocks!" Url="http://feeds.feedburner.com/dotnetrocks_AAC"
+title="The New Stack Makers" Url="http://feeds.soundcloud.com/users/soundcloud:users:107605642/sounds.rss"
+title="DevOps Radio" Url="http://devopsradio.libsyn.com/rss"
+title="The Open Source Show  - Channel 9" Url="https://s.ch9.ms/Shows/The-Open-Source-Show/feed"
+title="Complete Developer Podcast" Url="http://completedeveloperpodcast.com/feed/podcast/"
+title="The Cloudcast (.net) - Weekly Cloud Computing Podcast" Url="https://www.buzzsprout.com/3195.rss"
+title="Packet Pushers - Full Stack Journey" Url="http://feeds.packetpushers.net/fullstackjourney"
+title="The New Stack @ Scale" Url="http://feeds.soundcloud.com/users/soundcloud:users:172286536/sounds.rss"
+title="IT Career Energizer: Start, Develop and Grow Your Tech Career" Url="https://itcareerenergizer.libsyn.com/rss"
+title="PodCTL - Containers | Kubernetes | OpenShift" Url="https://feeds.buzzsprout.com/110399.rss"
+title="How to Be Awesome at Your Job: A Podcast for People who Love Learning Improvement Tools for Happier Work, Career" Url="http://awesomeatyourjob.libsyn.com/rss"
+title="Syntax - Tasty Web Development Treats" Url="http://feed.syntax.fm/rss"
+title="Software Engineering Radio - The Podcast for Professional Software Developers" Url="http://feeds.feedburner.com/se-radio"
